@@ -1,7 +1,15 @@
+from translate import Translator
+
+translator = Translator(to_lang="ja")
+
 if __name__ == '__main__':
     try:
-        with open('./text-files/fake.txt', mode='r') as my_file:
+        with open('./text-files/trial.txt', mode='r') as my_file:
             text = my_file.read()
+            translation = translator.translate(text)
+            print(translation)#私の名前はハビエルです
+            with open('./text-files/japanese.txt', mode='w') as ja_file:
+                ja_file.write(translation)
     except FileNotFoundError as err:
         print('file does not exist')
         raise err
