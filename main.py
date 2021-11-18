@@ -1,8 +1,13 @@
 if __name__ == '__main__':
-
-    with open('./text-files/trial.txt', mode='a') as my_file:
-        text = my_file.write(':(')
-        print(text)
+    try:
+        with open('./text-files/fake.txt', mode='r') as my_file:
+            text = my_file.read()
+    except FileNotFoundError as err:
+        print('file does not exist')
+        raise err
+    except IOError as err:
+        print('IO error')
+        raise err
 
 
     '''
